@@ -151,11 +151,25 @@ namespace chapter2
             return this / magnitude;
         }
 
-        public float dot(vec3 a, vec3 b)
+        public float dot(vec3 a)
         {
-            return a.x * b.x + a.y * b.y + a.z * b.y;
+            return a.x * x + a.y * y + a.z * z;
         }
-        public vec3 cross(vec3 a, vec3 b)
+
+        public static float dot(vec3 a, vec3 b)
+        {
+            return a.x * b.x + a.y * b.y + a.z * b.z;
+        }
+
+        public vec3 cross(vec3 a)
+        {
+            return new vec3(
+                a.y * z - a.z * y,
+                a.z * x - a.x * z,
+                a.x * y - a.y * x);
+        }
+
+        public static vec3 cross(vec3 a, vec3 b)
         {
             return new vec3(
                 a.y * b.z - a.z * b.y,
